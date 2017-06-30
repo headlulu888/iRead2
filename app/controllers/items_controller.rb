@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item.create(params[:item])
+		@item = Item.create(params[:item].permit(:name, :desc, :number, :rating))
 		if @item.errors.empty?
 			redirect_to item_path(@item)
 		else

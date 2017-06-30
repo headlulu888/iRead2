@@ -13,6 +13,10 @@
 ActiveRecord::Schema.define(version: 20170628172640) do
 
   create_table "items", force: :cascade do |t|
+    t.float    "number"
+    t.string   "name"
+    t.string   "desc"
+    t.float    "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

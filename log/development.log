@@ -1,0 +1,634 @@
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItems (20170628172640)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" float, "name" varchar, "desc" varchar, "rating" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628172640"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-06-30 11:12:03.111849"], ["updated_at", "2017-06-30 11:12:03.111849"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:12:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 30ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:12:35 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:12:36 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.1ms)
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:12:36 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 586ms (Views: 581.4ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 96ms (Views: 93.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:12:46 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:12:47 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (11.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.9ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.1ms)
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:12:57 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:15:18 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 23.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "items" ("number", "name", "desc", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", 22.0], ["name", "book"], ["desc", "nice nice"], ["rating", 3.0], ["created_at", "2017-06-30 11:16:58.401371"], ["updated_at", "2017-06-30 11:16:58.401371"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "items" ("number", "name", "desc", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", 222.0], ["name", "book112"], ["desc", "nice nice ssss"], ["rating", 5.0], ["created_at", "2017-06-30 11:17:19.198615"], ["updated_at", "2017-06-30 11:17:19.198615"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:18:02 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at 2017-06-30 14:18:04 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 22.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/items/2" for 127.0.0.1 at 2017-06-30 14:18:07 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items/2" for 127.0.0.1 at 2017-06-30 14:18:10 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:18:14 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:18:15 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:18:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (3.7ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (83.6ms)
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:18:16 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered collection of /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (3.3ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.5ms)
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:20:40 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:20:57 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.5ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:21:38 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'item' for Item.):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.7ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:21:56 +0300
+  
+SyntaxError (/Users/mahnev/work/iRead2/app/controllers/items_controller.rb:11: syntax error, unexpected ':', expecting ')'
+		@item = Item.create(@item: params[:item])
+		                          ^
+/Users/mahnev/work/iRead2/app/controllers/items_controller.rb:11: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/items_controller.rb:11: syntax error, unexpected ':', expecting ')'
+app/controllers/items_controller.rb:11: syntax error, unexpected ')', expecting keyword_end
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.8ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:23:15 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.4ms)
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:25:44 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 67ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:31:23 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.9ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:32:02 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.7ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:32:07 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.5ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:32:19 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.3ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:32:34 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.7ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:32:54 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.9ms)
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:32:56 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:33:08 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.5ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:33:37 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `item' for #<ItemsController:0x007f909dcb9618>):
+  
+app/controllers/items_controller.rb:11:in `create'
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.4ms)
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:33:46 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1IbSKCiapLOEGsqDy0yyJ74sAoJyw8ASf1L85R98jRVOaAh9ve4nXnxpEeuqLUOyYor+9v6Pm8jBlUjXjM3hGg==", "item"=>{"name"=>"fades", "desc"=>"dfsdfsfsf", "number"=>"123", "rating"=>"22"}, "commit"=>"create item"}
+Unpermitted parameters: name, desc, number, rating
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 69ms (Views: 33.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:33:57 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ykaHKvYlyV11aOzs61KU4TTgkPjIvCpRllN2tghNQ3tQqF1/Y1FKsI0bN4SKM2V06EZsjETwcYsolMKEm/wvdA==", "item"=>{"name"=>"dads", "desc"=>"dasds", "number"=>"12", "rating"=>"12"}, "commit"=>"create item"}
+Unpermitted parameters: name, desc, number, rating
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2017-06-30 14:34:14 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:34:15 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (6.8ms)
+Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:34:16 +0300
+Processing by ItemsController#new as HTML
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:34:16 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (1.3ms)
+  Rendered items/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:34:16 +0300
+Processing by ItemsController#new as HTML
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:34:16 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (1.6ms)
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 56ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 50ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2017-06-30 14:34:55 +0300
+Processing by ItemsController#new as HTML
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items" for 127.0.0.1 at 2017-06-30 14:35:12 +0300
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rsP9Ed5Oo+ejo7rAUpARD8v2BhoimjNqmIr5OPl6NwE0LSdESzogClvQYagz8eCaF1D6bq7WaLAmTU0KastbDg==", "item"=>{"name"=>"sdfsfs", "desc"=>"sdsdas", "number"=>"222", "rating"=>"123"}, "commit"=>"create item"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "items" ("number", "name", "desc", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", 222.0], ["name", "sdfsfs"], ["desc", "sdsdas"], ["rating", 123.0], ["created_at", "2017-06-30 11:35:12.753807"], ["updated_at", "2017-06-30 11:35:12.753807"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/items/3
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/items/3" for 127.0.0.1 at 2017-06-30 14:35:12 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items/" for 127.0.0.1 at 2017-06-30 14:35:18 +0300
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items/3" for 127.0.0.1 at 2017-06-30 14:35:18 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 41ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/3" for 127.0.0.1 at 2017-06-30 14:35:21 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 28ms (Views: 21.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at 2017-06-30 14:35:26 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items/2" for 127.0.0.1 at 2017-06-30 14:35:28 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items/3" for 127.0.0.1 at 2017-06-30 14:35:30 +0300
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? ORDER BY "items"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 14:49:56 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mahnev/.rvm/gems/ruby-2.3.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
